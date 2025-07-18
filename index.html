@@ -3,35 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Multi Boot Sistem Kurulumu - Yoklamaa</title>
+  <title>Çoklu İşletim Sistemi Kurulumu - Yoklamaa</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
+      background-color: #f5f7fa;
       color: #333;
       padding: 40px;
-      line-height: 1.8;
     }
+
     h1, h2 {
-      color: #0051a3;
+      color: #0a4b78;
     }
-    .section {
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
       background: white;
       padding: 20px;
-      margin-bottom: 40px;
-      border-left: 6px solid #0051a3;
-      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: 0.3s ease;
     }
-    code {
-      background: #eee;
-      padding: 2px 6px;
-      border-radius: 4px;
+
+    .card:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+      background-color: #e8f1fc;
     }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .section {
+      background-color: white;
+      padding: 20px;
+      margin-top: 50px;
+      border-left: 6px solid #0a4b78;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
     ul {
-      margin: 0;
       padding-left: 20px;
     }
-    .footer {
+
+    footer {
       margin-top: 50px;
       text-align: center;
       color: #666;
@@ -40,86 +64,43 @@
 </head>
 <body>
 
-  <h1>🧠 Multi-Boot Kurulum Rehberi</h1>
-  <p>Bu rehberde aynı bilgisayara birden fazla işletim sistemini nasıl kuracağınızı detaylıca anlatıyoruz. İçerik:</p>
-  <ul>
-    <li>Windows 8 / 10 / 11</li>
-    <li>Hackintosh (macOS)</li>
-    <li>Linux (Ubuntu, Arch)</li>
-    <li>Boot manager seçimi ve GRUB yapılandırması</li>
-  </ul>
+  <h1>🧠 Çoklu İşletim Sistemi Kurulum Portalı</h1>
+  <p>Aşağıdan hangi sistemi kurmak istiyorsan tıkla. Her biri detaylı HTML rehberine yönlendirir.</p>
 
-  <div class="section">
-    <h2>1️⃣ Sistem Hazırlığı (Disk Bölümleme)</h2>
-    <ul>
-      <li>BIOS'ta <strong>UEFI</strong> modu etkin olmalı.</li>
-      <li><strong>Disk Yönetimi</strong> ya da GParted ile her sistem için ayrı bölümler oluştur:</li>
-      <ul>
-        <li>Windows için: <code>NTFS</code></li>
-        <li>macOS için: <code>APFS (HFS+)</code></li>
-        <li>Linux için: <code>ext4</code></li>
-      </ul>
-      <li>Her OS için ayrı EFI (ESP) bölümü önerilir veya ortak da kullanılabilir.</li>
-    </ul>
+  <div class="container">
+    <a href="hackintosh.html">
+      <div class="card">🍏 Hackintosh (macOS)</div>
+    </a>
+    <a href="linux.html">
+      <div class="card">🐧 Linux (Ubuntu / Arch)</div>
+    </a>
+    <a href="win8.html">
+      <div class="card">🪟 Windows 8</div>
+    </a>
+    <a href="win10.html">
+      <div class="card">🪟 Windows 10</div>
+    </a>
+    <a href="win11.html">
+      <div class="card">🪟 Windows 11</div>
+    </a>
   </div>
 
   <div class="section">
-    <h2>2️⃣ Windows 8 / 10 / 11 Kurulumu</h2>
+    <h2>💡 Dual Boot Nasıl Yapılır?</h2>
     <ul>
-      <li>USB hazırlamak için: <a href="https://rufus.ie/tr/">Rufus</a> kullan.</li>
-      <li>Kurulumda özel disk seçimi ekranında <strong>ayırdığın NTFS</strong> bölümü seç.</li>
-      <li>İlk olarak en eski Windows'u (Win8), sonra 10 ve en son 11’i kur.</li>
-      <li>Her biri kendi EFI kaydını oluşturur.</li>
+      <li><strong>Disk Bölümlendirme:</strong> Her işletim sistemi için ayrı bir bölüm oluştur.</li>
+      <li><strong>Kurulum Sırası:</strong> Önce Windows, sonra Linux, en son Hackintosh önerilir.</li>
+      <li><strong>GRUB:</strong> En son kurulan Linux genellikle GRUB ile tüm sistemleri algılar.</li>
+      <li><strong>EFI Yapısı:</strong> Hepsi kendi EFI klasörünü oluşturur, ortak EFI bölümü paylaşabilirler.</li>
+      <li><strong>rEFInd:</strong> Çoklu sistemlerde GUI’li giriş ekranı için <a href="https://www.rodsbooks.com/refind/" target="_blank">rEFInd</a> kullanabilirsin.</li>
+      <li><strong>Yedekleme:</strong> Her sistemin EFI klasörünü yedekle, bozulmalarda kurtarırsın.</li>
     </ul>
   </div>
 
-  <div class="section">
-    <h2>3️⃣ Hackintosh (macOS) Kurulumu</h2>
-    <ul>
-      <li>OpenCore veya Clover ile boot edilecek bir USB oluştur.</li>
-      <li><a href="https://dortania.github.io/OpenCore-Install-Guide/">OpenCore Install Guide</a> üzerinden cihazına göre yapılandırma yap.</li>
-      <li>macOS için ayrı APFS bölümü oluştur, kurulum sırasında bu bölümü biçimlendir.</li>
-      <li><strong>EFI klasörü</strong> içeriğini dikkatlice oluştur: ACPI, Kext, Drivers, Config.plist</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>4️⃣ Linux (Ubuntu / Arch) Kurulumu</h2>
-    <ul>
-      <li>Live USB hazırla (Ventoy veya balenaEtcher ile).</li>
-      <li>Ubuntu için: Kurulum sırasında <strong>"Something Else / Başka Bir Şey"</strong> diyerek <code>ext4</code> bölümü seç.</li>
-      <li>Arch için: Elle bölümlendir, <code>mkfs.ext4</code>, <code>mount</code>, sonra <code>pacstrap</code> ve <code>grub-install</code></li>
-      <li>EFI bölümünü mount etmeyi unutma: <code>/boot/efi</code></li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>5️⃣ Giriş Ekranı (Boot Manager)</h2>
-    <ul>
-      <li>Linux GRUB en güçlü çözümdür. Son kurulan Linux GRUB yöneticisi olur.</li>
-      <li>GRUB’a Windows ve Hackintosh’u da eklemek için:</li>
-      <ul>
-        <li><code>sudo update-grub</code> (Ubuntu)</li>
-        <li>Hackintosh EFI’si GRUB'da gözükmezse <code>grub-customizer</code> ile elle ekle</li>
-        <li>GRUB yerine rEFInd da kullanılabilir: <a href="https://www.rodsbooks.com/refind/">https://www.rodsbooks.com/refind/</a></li>
-      </ul>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>6️⃣ Tavsiyeler ve İpuçları</h2>
-    <ul>
-      <li>Her kurulumdan sonra EFI bölümünü yedekle.</li>
-      <li>Ventoy ile çoklu ISO taşıyan USB’yi yanına al, her şey elinin altında olur.</li>
-      <li>Hackintosh’u en son kurarsan EFI yapısını ezmemeye dikkat et.</li>
-      <li>Dual ya da triple boot yaparken Windows update'leri EFI'yi bozabilir, yedeğini al.</li>
-    </ul>
-  </div>
-
-  <div class="footer">
-    <p><strong>Hazırlayan:</strong> YOKLAMAA © 2025</p>
-    <p>İşletim sistemleriyle dans edenlere özel ✨</p>
-  </div>
+  <footer>
+    <p>Hazırlayan: <strong>YOKLAMAA</strong> ⚡</p>
+    <p>2025 © Çoklu OS Rehberi</p>
+  </footer>
 
 </body>
 </html>
