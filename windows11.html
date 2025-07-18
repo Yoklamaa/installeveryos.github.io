@@ -3,24 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <title>Windows 11 Kurulumu</title>
+  <style>
+    body { background-color: #121212; color: #e0e0e0; font-family: Arial; padding: 30px; }
+    h1, h2 { color: #00bfff; }
+    a { color: #4fc3f7; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: #222; padding: 2px 4px; border-radius: 3px; }
+  </style>
 </head>
 <body>
   <h1>Windows 11 Kurulumu (UEFI)</h1>
-  <p>Bu rehberde <strong>Windows 11</strong>'i USB bellek ile nasıl kuracağınızı öğreneceksiniz.</p>
+  <p>Bu rehberde Windows 11'i sıfırdan nasıl kuracağını adım adım öğreneceksin.</p>
 
-  <h2>Gerekenler</h2>
+  <h2>1. Gerekli Dosyaları İndir</h2>
   <ul>
-    <li>8 GB veya daha büyük USB bellek</li>
-    <li>Rufus programı (rufus.ie)</li>
-    <li>Windows 11 ISO dosyası (resmi Microsoft sitesinden)</li>
+    <li><a href="https://www.microsoft.com/software-download/windows11" target="_blank">Windows 11 ISO</a></li>
+    <li><a href="https://rufus.ie" target="_blank">Rufus Programı</a></li>
+    <li>En az 8 GB USB bellek</li>
   </ul>
 
-  <h2>Kurulum Adımları</h2>
+  <h2>2. USB Hazırlama</h2>
   <ol>
-    <li>Rufus ile ISO dosyasını USB'ye yazın</li>
-    <li>Bilgisayarınızı USB'den başlatın (BIOS/UEFI'den Boot ayarları yapın)</li>
-    <li>"Install Now" butonuna tıklayın</li>
-    <li>Disk bölümlendirmeyi yapın ve kurulumu başlatın</li>
+    <li>Rufus'u aç</li>
+    <li>USB'yi tak</li>
+    <li>ISO Dosyasını seç</li>
+    <li><code>Yazma Yöntemi: UEFI (GPT)</code> seç</li>
+    <li>"BAŞLAT" butonuna tıkla</li>
+  </ol>
+
+  <h2>3. BIOS Ayarları</h2>
+  <ul>
+    <li>Bilgisayarı yeniden başlat</li>
+    <li><code>DEL</code>, <code>F2</code> ya da <code>F12</code> ile BIOS’a gir</li>
+    <li>Secure Boot kapalı olmalı</li>
+    <li>Boot sırasına USB'yi en üste al</li>
+  </ul>
+
+  <h2>4. Kurulum</h2>
+  <ol>
+    <li>USB'den başlatınca Windows ekranı gelir</li>
+    <li>"Install Now" → "I don’t have a product key" seç</li>
+    <li>Sürüm seç: Home ya da Pro</li>
+    <li>"Custom Install" seç</li>
+    <li>Diskleri sil ve yeni bölüm oluştur</li>
+    <li>Kurulumu başlat</li>
   </ol>
 
   <p><a href="index.html">← Ana Sayfaya Dön</a></p>
