@@ -2,85 +2,140 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Windows 11 Kurulumu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Windows 11 Kurulum Rehberi</title>
   <style>
     body {
-      background-color: #121212;
-      color: #e0e0e0;
       font-family: Arial, sans-serif;
+      line-height: 1.8;
+      background-color: #f4f4f4;
+      color: #333;
       padding: 40px;
     }
-    h1 {
-      color: #00bfff;
-      text-shadow: 0 0 5px #00bfff;
-    }
-    h2 {
-      color: #4fc3f7;
-    }
-    a {
-      color: #4fc3f7;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    ul, ol {
-      margin-left: 20px;
+    h1, h2 {
+      color: #0b5394;
     }
     code {
-      background: #1e1e1e;
+      background-color: #eee;
       padding: 2px 4px;
       border-radius: 4px;
-      color: #ffb74d;
     }
-    .footer {
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #777;
+    ul {
+      margin-top: 0;
+    }
+    .step {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-left: 6px solid #0b5394;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
   </style>
 </head>
 <body>
-  <h1>Windows 11 Kurulumu (UEFI)</h1>
-  <p>Windows 11’i adım adım kurmayı bu rehberde öğreneceksin:</p>
+  <h1>🖥️ Windows 11 Kurulumu - Detaylı Rehber</h1>
+  <p>Bu sayfada, sıfırdan Windows 11 kurulumu nasıl yapılır adım adım, en ince ayrıntısına kadar anlatılmıştır.</p>
 
-  <h2>1. Gerekli Araçlar</h2>
-  <ul>
-    <li><a href="https://www.microsoft.com/software-download/windows11" target="_blank">Windows 11 ISO</a></li>
-    <li><a href="https://rufus.ie" target="_blank">Rufus Programı</a></li>
-    <li>En az 8 GB USB bellek</li>
-  </ul>
-
-  <h2>2. USB Hazırlama (Rufus)</h2>
-  <ol>
-    <li>Rufus'u çalıştır</li>
-    <li>ISO'yu seç</li>
-    <li><code>Partition scheme: GPT</code></li>
-    <li><code>Target system: UEFI</code></li>
-    <li>“BAŞLAT” tıkla</li>
-  </ol>
-
-  <h2>3. BIOS Ayarları</h2>
-  <ul>
-    <li>BIOS’a gir (<code>DEL</code> veya <code>F2</code>)</li>
-    <li><code>Secure Boot: Disabled</code></li>
-    <li><code>Boot Order: USB en üstte</code></li>
-  </ul>
-
-  <h2>4. Kurulum Süreci</h2>
-  <ol>
-    <li>USB’den başlat</li>
-    <li>"Install Now" tıkla</li>
-    <li>Ürün anahtarı atla → sürüm seç</li>
-    <li><code>Custom Install</code> seç</li>
-    <li>Diskleri sil → yeni bölüm oluştur</li>
-    <li>Kurulumu başlat</li>
-  </ol>
-
-  <p><a href="index.html">← Ana Sayfaya Dön</a></p>
-
-  <div class="footer">
-    © 2025 InstallEveryOS – Hazırlayan: Yoklamaa
+  <div class="step">
+    <h2>1. 💾 Gereksinimler</h2>
+    <ul>
+      <li>USB Bellek (en az 8 GB)</li>
+      <li>Windows 11 ISO dosyası (Microsoft Resmi Sitesinden indir)</li>
+      <li>Rufus veya Media Creation Tool (ISO yazmak için)</li>
+      <li>İnternete bağlı bir bilgisayar</li>
+      <li>UEFI destekli BIOS ve TPM 2.0 (zorunlu)</li>
+    </ul>
   </div>
+
+  <div class="step">
+    <h2>2. 📥 Windows 11 ISO Dosyasını İndir</h2>
+    <p>Microsoft'un resmi web sitesine git: <a href="https://www.microsoft.com/software-download/windows11" target="_blank">https://www.microsoft.com/software-download/windows11</a></p>
+    <ul>
+      <li>“Disk Görüntüsü (ISO) İndir” bölümünden Windows 11’i seç.</li>
+      <li>Sürümü, dili ve bit sürümünü seçtikten sonra indir.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h2>3. 🧰 USB Belleğe Yazdırma</h2>
+    <p><strong>Rufus Kullanarak:</strong></p>
+    <ol>
+      <li>Rufus’u indir: <a href="https://rufus.ie/tr/" target="_blank">https://rufus.ie/tr/</a></li>
+      <li>USB belleğini tak.</li>
+      <li>Rufus’u aç, ISO dosyasını seç.</li>
+      <li><strong>Yükleme Seçeneği:</strong> “Windows Standard Installation”</li>
+      <li><strong>Bölüm düzeni:</strong> GPT (UEFI sistemler için)</li>
+      <li>“Başlat”a tıkla ve yazdırma tamamlanana kadar bekle.</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <h2>4. 🔁 BIOS Ayarlarını Yap</h2>
+    <ul>
+      <li>Bilgisayarı yeniden başlat ve BIOS’a gir (genellikle <code>DEL</code>, <code>F2</code>, <code>F12</code>, <code>ESC</code>)</li>
+      <li><strong>Boot (Ön Yükleme) sırasını</strong> değiştir, USB belleği ilk sıraya al.</li>
+      <li><strong>Secure Boot</strong> aktif olmalı.</li>
+      <li><strong>TPM 2.0</strong> etkin olmalı.</li>
+      <li>Değişiklikleri kaydet ve çık.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h2>5. 💻 Kurulum Ekranına Giriş</h2>
+    <p>Bilgisayar USB’den başlatılacak ve Windows logosu gelecek.</p>
+    <ul>
+      <li>İlk ekran: Dil, saat ve klavye düzenini seç → “İleri” → “Şimdi Yükle”</li>
+      <li>Lisans anahtarını gir (yoksa “Ürüne sahip değilim” de)</li>
+      <li>Sürüm seç: Home / Pro (kendi ihtiyacına göre)</li>
+      <li>Lisans sözleşmesini kabul et.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h2>6. 💾 Disk Seçimi</h2>
+    <ul>
+      <li>“Özel: Yalnızca Windows’u yükle (gelişmiş)” seçeneğini seç.</li>
+      <li>Eski disk bölümlerini sil (eğer temiz kurulum yapıyorsan)</li>
+      <li>“Tahsis edilmemiş alan” üzerine tıklayıp “İleri” de.</li>
+    </ul>
+    <p><strong>Dikkat:</strong> Bu işlem tüm verileri siler!</p>
+  </div>
+
+  <div class="step">
+    <h2>7. 🔄 Kurulumun Başlaması</h2>
+    <p>Windows, gerekli dosyaları kopyalayacak ve birkaç kez yeniden başlatılacak.</p>
+    <ul>
+      <li>Kurulum %100 olduğunda bilgisayar yeniden başlayacak.</li>
+      <li>USB’yi çıkarabilirsin artık.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h2>8. 👤 İlk Ayarlar ve Hesap Oluşturma</h2>
+    <ul>
+      <li>Bölge, klavye düzeni, ikinci klavye → “Atla”</li>
+      <li>İnternete bağlan (Wi-Fi ya da Ethernet)</li>
+      <li>Microsoft hesabı ile giriş yap (ya da <code>Shift + F10</code> → <code>OOBE\BYPASSNRO</code> ile yerel hesap oluşturabilirsin)</li>
+      <li>Bilgisayar adı, PIN kodu, izinler vb. ayarları sırayla yap.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h2>9. 🚀 Masaüstüne Giriş ve Son Ayarlar</h2>
+    <ul>
+      <li>Kurulum tamamlandıktan sonra masaüstüne ulaşacaksın.</li>
+      <li>Sürücü güncellemeleri için: “Aygıt Yöneticisi” kontrol et.</li>
+      <li>Windows Update bölümünden güncellemeleri indir.</li>
+      <li>İstediğin yazılımları yüklemeye başlayabilirsin (Tarayıcı, Office, vb.)</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h2>10. ✅ Kurulum Tamam!</h2>
+    <p>Windows 11 bilgisayarında çalışıyor. Artık bilgisayarını gönül rahatlığıyla kullanabilirsin.</p>
+  </div>
+
+  <p><strong>Hazırlayan:</strong> ChatGPT - Batunun Hesap için 💻</p>
 </body>
 </html>
+
