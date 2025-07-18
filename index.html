@@ -39,10 +39,14 @@
       background-color: #e8f1fc;
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
     .linux-list {
       font-size: 0.9em;
       margin-top: 10px;
-      color: #444;
       text-align: left;
     }
 
@@ -52,9 +56,13 @@
       margin-top: 10px;
     }
 
-    a {
+    .linux-list li a {
+      color: #0a4b78;
       text-decoration: none;
-      color: inherit;
+    }
+
+    .linux-list li a:hover {
+      text-decoration: underline;
     }
 
     footer {
@@ -74,21 +82,19 @@
       <div class="card">🍏 Hackintosh (macOS)</div>
     </a>
 
-    <a href="linux.html">
-      <div class="card">
-        🐧 Linux (Ubuntu / Arch)
-        <div class="linux-list">
-          <strong>Popüler Dağıtımlar:</strong>
-          <ul>
-            <li>Ubuntu</li>
-            <li>Linux Mint</li>
-            <li>Fedora</li>
-            <li>Debian</li>
-            <li>Arch Linux</li>
-          </ul>
-        </div>
+    <div class="card">
+      🐧 Linux Dağıtımları
+      <div class="linux-list">
+        <strong>Tıklanabilir Dağıtımlar:</strong>
+        <ul>
+          <li><a href="ubuntu.html">Ubuntu</a></li>
+          <li><a href="mint.html">Linux Mint</a></li>
+          <li><a href="fedora.html">Fedora</a></li>
+          <li><a href="debian.html">Debian</a></li>
+          <li><a href="arch.html">Arch Linux</a></li>
+        </ul>
       </div>
-    </a>
+    </div>
 
     <a href="win8.html">
       <div class="card">🪟 Windows 8</div>
