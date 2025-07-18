@@ -30,12 +30,26 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
       transition: 0.3s ease;
+      position: relative;
     }
 
     .card:hover {
       transform: scale(1.05);
       cursor: pointer;
       background-color: #e8f1fc;
+    }
+
+    .linux-list {
+      font-size: 0.9em;
+      margin-top: 10px;
+      color: #444;
+      text-align: left;
+    }
+
+    .linux-list ul {
+      list-style-type: square;
+      padding-left: 20px;
+      margin-top: 10px;
     }
 
     a {
@@ -59,9 +73,23 @@
     <a href="hackintosh.html">
       <div class="card">🍏 Hackintosh (macOS)</div>
     </a>
+
     <a href="linux.html">
-      <div class="card">🐧 Linux (Ubuntu / Arch)</div>
+      <div class="card">
+        🐧 Linux (Ubuntu / Arch)
+        <div class="linux-list">
+          <strong>Popüler Dağıtımlar:</strong>
+          <ul>
+            <li>Ubuntu</li>
+            <li>Linux Mint</li>
+            <li>Fedora</li>
+            <li>Debian</li>
+            <li>Arch Linux</li>
+          </ul>
+        </div>
+      </div>
     </a>
+
     <a href="win8.html">
       <div class="card">🪟 Windows 8</div>
     </a>
