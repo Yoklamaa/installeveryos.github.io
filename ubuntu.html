@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ubuntu 24.04 Kurulumu</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+    h1 {
+      color: #ff9800;
+      text-shadow: 0 0 5px #ff9800;
+    }
+    h2 {
+      color: #ffcc80;
+    }
+    a {
+      color: #ffcc80;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul, ol {
+      margin-left: 20px;
+    }
+    code {
+      background: #1e1e1e;
+      padding: 2px 4px;
+      border-radius: 4px;
+      color: #ffa726;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ubuntu 24.04 Kurulumu</h1>
+  <p>Ubuntu’nun en yeni sürümünü nasıl kuracağını adım adım anlatıyoruz:</p>
+
+  <h2>1. Gerekli Dosyalar</h2>
+  <ul>
+    <li><a href="https://ubuntu.com/download/desktop" target="_blank">Ubuntu 24.04 ISO</a></li>
+    <li>USB yazma aracı: <a href="https://rufus.ie" target="_blank">Rufus</a> veya <a href="https://etcher.balena.io" target="_blank">balenaEtcher</a></li>
+    <li>8 GB USB bellek</li>
+  </ul>
+
+  <h2>2. USB Hazırlama</h2>
+  <ol>
+    <li>Rufus'u aç, ISO dosyasını seç</li>
+    <li><code>Partition scheme: GPT</code> seç</li>
+    <li><code>Target system: UEFI</code></li>
+    <li>Yaz ve bitince USB'yi çıkar</li>
+  </ol>
+
+  <h2>3. BIOS Ayarı</h2>
+  <ul>
+    <li><code>Secure Boot: Devre Dışı</code></li>
+    <li><code>Boot sırası: USB üstte</code></li>
+  </ul>
+
+  <h2>4. Ubuntu Kurulumu</h2>
+  <ol>
+    <li>Bilgisayarı USB’den başlat</li>
+    <li>"Install Ubuntu" seç</li>
+    <li>Klavye: Türkçe</li>
+    <li>Normal kurulum + güncellemeleri indir seç</li>
+    <li>Diski sil ve Ubuntu’yu kur</li>
+    <li>İsim ve şifre oluştur</li>
+    <li>Kurulumu tamamla ve yeniden başlat</li>
+  </ol>
+
+  <p><a href="index.html">← Ana Sayfaya Dön</a></p>
+
+  <div class="footer">
+    © 2025 InstallEveryOS – Hazırlayan: Yoklamaa
+  </div>
+</body>
+</html>
